@@ -5,7 +5,6 @@ import java.time.LocalDate;
 public class User {
     private String firstName;
     private String lastName;
-    private int age;
     private LocalDate birthDate;
     private Gender gender;
     private String phoneNumber;
@@ -14,7 +13,6 @@ public class User {
 
     public User(String firstName,
                 String lastName,
-                int age,
                 LocalDate birthDate,
                 Gender gender,
                 String phoneNumber,
@@ -22,7 +20,6 @@ public class User {
                 String password) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.age = age;
         this.birthDate = birthDate;
         this.gender = gender;
         this.phoneNumber = phoneNumber;
@@ -44,14 +41,6 @@ public class User {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
     }
 
     public LocalDate getBirthDate() {
@@ -103,8 +92,7 @@ public class User {
             return false;
         }
         User user = (User) o;
-        return age == user.getAge()
-                && firstName.equalsIgnoreCase(user.getFirstName())
+        return firstName.equalsIgnoreCase(user.getFirstName())
                 && lastName.equalsIgnoreCase(user.getLastName())
                 && birthDate.equals(user.getBirthDate())
                 && gender == user.getGender()
@@ -116,8 +104,7 @@ public class User {
     @Override
     public int hashCode() {
         final int prime = 31;
-        int result = getAge();
-        result = prime * result * getFirstName().hashCode();
+        int result = prime * getFirstName().hashCode();
         result = prime * result * getLastName().hashCode();
         result = prime * result * getBirthDate().hashCode();
         result = prime * result * getGender().hashCode();
