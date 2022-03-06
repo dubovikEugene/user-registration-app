@@ -5,7 +5,6 @@ import java.time.LocalDate;
 public class User {
     private String firstName;
     private String lastName;
-    private LocalDate birthDate;
     private Gender gender;
     private String phoneNumber;
     private String email;
@@ -13,14 +12,12 @@ public class User {
 
     public User(String firstName,
                 String lastName,
-                LocalDate birthDate,
                 Gender gender,
                 String phoneNumber,
                 String email,
                 String password) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.birthDate = birthDate;
         this.gender = gender;
         this.phoneNumber = phoneNumber;
         this.email = email;
@@ -41,14 +38,6 @@ public class User {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    public LocalDate getBirthDate() {
-        return birthDate;
-    }
-
-    public void setBirthDate(LocalDate birthDate) {
-        this.birthDate = birthDate;
     }
 
     public Gender getGender() {
@@ -94,7 +83,6 @@ public class User {
         User user = (User) o;
         return firstName.equalsIgnoreCase(user.getFirstName())
                 && lastName.equalsIgnoreCase(user.getLastName())
-                && birthDate.equals(user.getBirthDate())
                 && gender == user.getGender()
                 && phoneNumber.equalsIgnoreCase(user.getPhoneNumber())
                 && email.equalsIgnoreCase(user.getEmail())
@@ -106,7 +94,6 @@ public class User {
         final int prime = 31;
         int result = prime * getFirstName().hashCode();
         result = prime * result * getLastName().hashCode();
-        result = prime * result * getBirthDate().hashCode();
         result = prime * result * getGender().hashCode();
         result = prime * result * getPhoneNumber().hashCode();
         result = prime * result * getEmail().hashCode();
